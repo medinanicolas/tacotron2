@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  waveglow:
+    build: 
+      context: .
+      dockerfile: .docker/Dockerfile
+    container_name: waveglow
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    volumes:
+      - /opt/data/audios/:/workspace/audios/
+    restart: no
+
