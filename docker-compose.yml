@@ -1,11 +1,11 @@
 version: '3'
 
 services:
-  waveglow:
+  speech:
     build: 
       context: .
       dockerfile: .docker/Dockerfile
-    container_name: waveglow
+    container_name: speech
     deploy:
       resources:
         reservations:
@@ -14,6 +14,6 @@ services:
               count: 1
               capabilities: [gpu]
     volumes:
-      - /opt/data/audios/:/workspace/audios/
+      - /mnt/storage/:/mnt/storage/
     restart: no
 
