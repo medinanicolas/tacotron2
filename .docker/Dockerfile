@@ -5,7 +5,7 @@ RUN echo "export LANG=es_ES.UTF-8; export LANGUAGE=es_ES.UTF-8" > /root/.bashrc
 COPY waveglow/requirements.txt waveglow/requirements.txt
 RUN pip3 install -r waveglow/requirements.txt
 COPY ./ .
-RUN git submodule update --init
+RUN cd waveglow && git submodule update --init
 RUN cd waveglow/apex && git checkout 22.04-dev && pip3 install -v --disable-pip-version-check --no-cache-dir --global-option="--cpp_ext" --global-option="--cuda_ext" ./
 WORKDIR waveglow
 CMD tail -f /dev/null
