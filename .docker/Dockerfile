@@ -2,6 +2,7 @@ FROM pytorch/pytorch:1.9.0-cuda11.1-cudnn8-devel
 RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys A4B469963BF863CC
 RUN apt update && apt install language-pack-es libfreetype6-dev pkg-config git screen vim -y
 RUN echo "export LANG=es_ES.UTF-8; export LANGUAGE=es_ES.UTF-8" > /root/.bashrc
+RUN git submodule update --init --remote
 COPY waveglow/requirements.txt waveglow/requirements.txt
 RUN pip3 install -r waveglow/requirements.txt
 COPY ./ .
