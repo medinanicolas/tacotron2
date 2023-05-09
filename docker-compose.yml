@@ -6,7 +6,10 @@ services:
       context: .
       dockerfile: .docker/Dockerfile
     container_name: speech
-    deploy:
+    ports:
+      - "8888:8888" # jupyter
+      - "6006:6006" # tensorboard
+    deploy: # gpu
       resources:
         reservations:
           devices:
@@ -14,6 +17,7 @@ services:
               count: 1
               capabilities: [gpu]
     volumes:
-      - /mnt/storage/:/mnt/storage/
+      - /mnt/storage/:/mnt/storage/ # general storage
+      - /var/www/html/ai/models/:/var/www/html/ai/models/ # repo models
     restart: no
 
