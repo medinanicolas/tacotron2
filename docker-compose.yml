@@ -9,7 +9,8 @@ services:
     ports:
       - "8888:8888" # jupyter 1
       - "8889:8889" # jupyter 2
-      - "6006:6006" # tensorboard
+      - "6006:6006" # tensorboard 1
+      - "6007:6007" # tensorboard 2
     deploy: # gpu
       resources:
         reservations:
