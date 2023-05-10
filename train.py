@@ -249,7 +249,7 @@ def train(output_directory, log_directory, checkpoint_path, warm_start, n_gpus,
                 if rank == 0:
                     #checkpoint_path = os.path.join(
                     #    output_directory, "checkpoint_{}".format(iteration))
-                    checkpoint_path = "{}/waveglow_{}_{:.9f}".format(
+                    checkpoint_path = "{}/tacotron2_{}_{:.9f}".format(
                         output_directory, iteration, reduced_loss)
                     save_checkpoint(model, optimizer, learning_rate, iteration,
                                     checkpoint_path)
