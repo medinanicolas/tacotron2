@@ -57,7 +57,7 @@ def create_hparams(hparams_string=None, verbose=False):
         decoder_rnn_dim=1024,
         prenet_dim=256,
         max_decoder_steps=1000,
-        gate_threshold=0.01,
+        gate_threshold=0.5,
         p_attention_dropout=0.1,
         p_decoder_dropout=0.1,
 
